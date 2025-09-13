@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Dashboard — AI Finance Analytics</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="logo-block">
+        <img src="{{ url_for('static', filename='images/ai_finance_analytics_logo.png') }}" class="logo-sm" alt="logo">
+        <h2>FinStream</h2>
+      </div>
+      <nav>
+        <a class="active" href="/dashboard">Overview</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <h1>Market Dashboard</h1>
+        <div class="controls">
+          <input id="symbolInput" placeholder="Symbol (BTC)" class="input"/>
+          <button id="reloadBtn" class="btn">Reload</button>
+        </div>
+      </header>
+
+      <section class="kpis">
+        <div class="kpi card">
+          <div class="kpi-title">Latest Price</div>
+          <div id="kpi-price" class="kpi-value">--</div>
+        </div>
+        <div class="kpi card">
+          <div class="kpi-title">Anomalies (last 500)</div>
+          <div id="kpi-anom" class="kpi-value">--</div>
+        </div>
+        <div class="kpi card">
+          <div class="kpi-title">Forecast</div>
+          <div id="kpi-forecast" class="kpi-value">--</div>
+        </div>
+      </section>
+
+      <section class="charts">
+        <div class="card">
+          <h3>Price Series</h3>
+          <canvas id="priceChart"></canvas>
+        </div>
+        <div class="card">
+          <h3>Anomaly Count (batch)</h3>
+          <canvas id="anomChart"></canvas>
+        </div>
+      </section>
+
+      <section class="table card">
+        <h3>Recent Ticks</h3>
+        <table id="ticksTable">
+          <thead><tr><th>timestamp</th><th>symbol</th><th>price</th><th>volume</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <h3>Quick Predict</h3>
+        <input id="predictPrice" class="input small" placeholder="current_price or [window array]" />
+        <button id="predictBtn" class="btn">Predict</button>
+        <div id="predictResult" class="muted">Result: --</div>
+
+        <h4>Sentiment</h4>
+        <textarea id="sentText" class="input" rows="3" placeholder="Enter headline..."></textarea>
+        <button id="sentBtn" class="btn">Analyze</button>
+        <div id="sentResult" class="muted">Sentiment: --</div>
+      </section>
+
+      <section class="card">
+        <h3>Activity</h3>
+        <pre id="activityLog" class="log">Ready.</pre>
+      </section>
+    </main>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
