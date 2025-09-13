@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
@@ -9,25 +9,32 @@
 </head>
 <body>
   <div class="layout">
+    <!-- Sidebar -->
     <aside class="sidebar">
       <div class="logo-block">
-        <img src="{{ url_for('static', filename='images/ai_finance_analytics_logo.png') }}" class="logo-sm" alt="logo">
+        <img src="{{ url_for('static', filename='images/ai_finance_analytics_logo.png') }}" class="logo-sm" alt="FinStream logo">
         <h2>FinStream</h2>
       </div>
       <nav>
         <a class="active" href="/dashboard">Overview</a>
+        <a href="#">Predictions</a>
+        <a href="#">Reports</a>
+        <a href="#">Settings</a>
       </nav>
     </aside>
 
+    <!-- Main Content -->
     <main class="main">
+      <!-- Header -->
       <header class="main-header">
         <h1>Market Dashboard</h1>
         <div class="controls">
-          <input id="symbolInput" placeholder="Symbol (BTC)" class="input"/>
+          <input id="symbolInput" placeholder="Symbol (BTC)" class="input" aria-label="Enter trading symbol"/>
           <button id="reloadBtn" class="btn">Reload</button>
         </div>
       </header>
 
+      <!-- KPI Section -->
       <section class="kpis">
         <div class="kpi card">
           <div class="kpi-title">Latest Price</div>
@@ -43,6 +50,7 @@
         </div>
       </section>
 
+      <!-- Charts -->
       <section class="charts">
         <div class="card">
           <h3>Price Series</h3>
@@ -54,29 +62,36 @@
         </div>
       </section>
 
+      <!-- Table -->
       <section class="table card">
         <h3>Recent Ticks</h3>
         <table id="ticksTable">
-          <thead><tr><th>timestamp</th><th>symbol</th><th>price</th><th>volume</th></tr></thead>
+          <thead>
+            <tr><th>Timestamp</th><th>Symbol</th><th>Price</th><th>Volume</th></tr>
+          </thead>
           <tbody></tbody>
         </table>
       </section>
 
+      <!-- Quick Predict -->
       <section class="card">
         <h3>Quick Predict</h3>
-        <input id="predictPrice" class="input small" placeholder="current_price or [window array]" />
-        <button id="predictBtn" class="btn">Predict</button>
+        <div class="controls">
+          <input id="predictPrice" class="input small" placeholder="Price or [window]" aria-label="Enter current price or window array"/>
+          <button id="predictBtn" class="btn">Predict</button>
+        </div>
         <div id="predictResult" class="muted">Result: --</div>
 
-        <h4>Sentiment</h4>
-        <textarea id="sentText" class="input" rows="3" placeholder="Enter headline..."></textarea>
+        <h4>Sentiment Analysis</h4>
+        <textarea id="sentText" class="input" rows="3" placeholder="Enter headline..." aria-label="Enter text for sentiment analysis"></textarea>
         <button id="sentBtn" class="btn">Analyze</button>
         <div id="sentResult" class="muted">Sentiment: --</div>
       </section>
 
+      <!-- Activity -->
       <section class="card">
-        <h3>Activity</h3>
-        <pre id="activityLog" class="log">Ready.</pre>
+        <h3>Activity Log</h3>
+        <pre id="activityLog" class="log">[Ready]</pre>
       </section>
     </main>
   </div>
