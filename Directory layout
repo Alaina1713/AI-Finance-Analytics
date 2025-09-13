@@ -1,0 +1,31 @@
+AI-Finance-Analytics/
+├─ app/
+│  ├─ __init__.py
+│  ├─ config.py
+│  ├─ models.py
+│  ├─ routes.py
+│  ├─ utils.py
+│  ├─ templates/
+│  │   ├─ index.html
+│  │   └─ dashboard.html
+│  └─ static/
+│      ├─ css/
+│      │   └─ style.css
+│      └─ js/
+│          └─ dashboard.js
+│
+├─ app_services/
+│  ├─ ingest_service.py
+│  ├─ lstm_service.py
+│  ├─ anomaly_service.py
+│  └─ sentiment_service.py
+│
+├─ data/
+│  └─ sample_market.csv
+│
+├─ scripts/
+│  └─ run_simulator.py
+│
+├─ requirements.txt
+├─ run.py
+└─ README.md
