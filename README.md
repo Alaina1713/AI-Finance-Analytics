@@ -1,4 +1,4 @@
-Clone the Repository
+1️⃣ Clone the Repository
 cd AI-Finance-Analytics
 
 2️⃣ Setup Virtual Environment
